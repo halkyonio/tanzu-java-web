@@ -1,6 +1,10 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='65.108.51.37:32500/tanzu-java-web-app/tanzu-java-web-app-source')
+# Previous config: SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='65.108.51.37:32500/tanzu-java-web-app/tanzu-java-web-app-source')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='quay.io/cmoulliard')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
-NAMESPACE = os.getenv("NAMESPACE", default='default')
+# NAMESPACE = os.getenv("NAMESPACE", default='default')
+NAMESPACE = os.getenv("NAMESPACE", default='tap-demo')
+
+allow_k8s_contexts('kubernetes-admin@kubernetes')
 
 k8s_custom_deploy(
     'tanzu-java-web-app',
